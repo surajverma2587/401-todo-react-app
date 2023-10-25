@@ -3,7 +3,11 @@ import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 
-export const TodoItem = ({ todoItem }) => {
+export const TodoItem = ({
+  todoItem,
+  handleOpenEditModal,
+  handleOpenConfirmationModal,
+}) => {
   return (
     <ListGroup.Item as="li">
       <Card>
@@ -32,8 +36,12 @@ export const TodoItem = ({ todoItem }) => {
         </Card.Body>
         <Card.Footer>
           <Stack direction="horizontal" className="justify-content-evenly">
-            <Button variant="warning">Edit</Button>
-            <Button variant="danger">Delete</Button>
+            <Button variant="warning" onClick={handleOpenEditModal}>
+              Edit
+            </Button>
+            <Button variant="danger" onClick={handleOpenConfirmationModal}>
+              Delete
+            </Button>
           </Stack>
         </Card.Footer>
       </Card>

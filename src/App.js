@@ -60,7 +60,13 @@ export const App = () => {
       <Stack gap={3}>
         <Banner />
         <TodoForm addItemToLS={addItemToLS} />
-        {todoItems && <TodoList todoItems={todoItems} />}
+        {todoItems && (
+          <TodoList
+            todoItems={todoItems}
+            handleOpenEditModal={handleOpenEditModal}
+            handleOpenConfirmationModal={handleOpenConfirmationModal}
+          />
+        )}
         <EditModal
           show={showEditModal}
           handleClose={handleCloseEditModal}
