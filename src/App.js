@@ -6,8 +6,8 @@ import { ConfirmationModal } from "./components/ConfirmationModal";
 import { useState } from "react";
 
 export const App = () => {
-  const [showEditModal, setShowEditModal] = useState(false);
-  const [showConfirmationModal, setShowConfirmationModal] = useState(true);
+  const [showEditModal, setShowEditModal] = useState(true);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
   const handleOpenEditModal = () => {
     setShowEditModal(true);
@@ -30,7 +30,11 @@ export const App = () => {
       <Banner />
       <TodoForm />
       <TodoList />
-      <EditModal show={showEditModal} handleClose={handleCloseEditModal} />
+      <EditModal
+        show={showEditModal}
+        handleClose={handleCloseEditModal}
+        itemToEdit={{ title: "Foo Bar", status: "INCOMPLETE" }}
+      />
       <ConfirmationModal
         show={showConfirmationModal}
         handleClose={handleCloseConfirmationModal}
