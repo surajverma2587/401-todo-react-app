@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Todo Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## User Story
 
-## Available Scripts
+As a user I should be able to perform CRUD operations on a todo application.
 
-In the project directory, you can run:
+## Acceptance Criteria
 
-### `npm start`
+> Must contain a title "To Do Manager" and a sub-title of "A simple planner application to manage your everyday todo tasks."
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> Must contain a form that has a text input with a place holder of "Enter a todo task" and a "Add to list" button
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> On application load user must be presented with previously saved todo items from local storage. If there are no items then user must see an alert "You have no items in your todo list. Please use the form above to add todo items to your list."
 
-### `npm test`
+> If there are previously stored items in local storage then the user must see a list of todo items along with a title of "Todo List" underneath the form
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> When the user enter a todo task in the form and click on the "Add to list" button then the todo item must be stored in local storage and then todo list under the form should also present the newly added todo task
 
-### `npm run build`
+> When the user tries to submit an empty form then the user must see an error message underneath the form form input "Please enter a valid todo task"
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> The todo item created will have a default status of incomplete and a creation date time in the format: 25th January, 2023 at 15:25
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> Each todo item card will contain the todo task, status and created date and time fields
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+{
+  title: "Pick up car from garage",
+  status: "INCOMPLETE",
+  created: "25th January, 2023 at 15:25"
+}
+```
 
-### `npm run eject`
+> Each todo task must have 2 control buttons: edit and delete button
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> User must be able to delete a specific todo item by clicking on the delete icon in the todo card which will also clear the todo item from local storage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> User must be able to edit the title of a todo item by clicking on the edit icon in the todo card which will bring a modal with the specific todo title and status
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> When the user updates the todo item's title and/or status and clicks on save the todo item will be updated in local storage and in the todo list
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> When the user clicks on cancel or close in the modal the todo item will remain unchanged
 
-## Learn More
+> When the user clicks on the "Clear list" button then all the todo tasks will be cleared from local storage and the page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Design Guide
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![desktop design guide](./desktop-design.png)
 
-### Code Splitting
+![mobile design guide](./mobile-design.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Getting Started
 
-### Analyzing the Bundle Size
+1. > Navigate to your `coding_bootcamp` workspace:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+cd ~/coding_bootcamp
+```
 
-### Making a Progressive Web App
+2. > Create a react project using the `create-react-app` script and use your own app name:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+npx create-react-app your-app-name
+cd your-react-app
+```
 
-### Advanced Configuration
+3. > Create a repository in [GitHub](https://github.com/new) and enter the "Repository name" as the same name as your react app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. > In the terminal within your react app enter the commands provided by GitHub. The first command points your local repository to the remote GitHub, the second command sets your branch as `main` and the last command pushes all your local changes to the remote repository
 
-### Deployment
+```
+git remote add origin git@github.com:YOUR_GITHUB_USERNAME/your-app-name.git
+git branch -M main
+git push -u origin main
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+5. > Once you refresh your GitHub page on the web browser you will see all your local files in GitHub.
 
-### `npm run build` fails to minify
+6. > You can now proceed to work locally and add commit and push code regularly during development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Resources
+
+- CSS framework: [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- Colour palette: [coolors](https://coolors.co/)
+- Icons: [font-awesome icons](https://fontawesome.com/icons) | [CDN](https://cdnjs.com/libraries/font-awesome)
+- [React docs](https://beta.reactjs.org/)

@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { Banner } from "./components/Banner";
+import { TodoForm } from "./components/TodoForm";
+import { TodoList } from "./components/TodoList";
+import { EditModal } from "./components/EditModal";
+import { ConfirmationModal } from "./components/ConfirmationModal";
+import { useState } from "react";
 
-function App() {
+export const App = () => {
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(true);
+
+  const handleOpenEditModal = () => {
+    setShowEditModal(true);
+  };
+
+  const handleOpenConfirmationModal = () => {
+    setShowConfirmationModal(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+  };
+
+  const handleCloseConfirmationModal = () => {
+    setShowConfirmationModal(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Banner />
+      <TodoForm />
+      <TodoList />
+      <EditModal show={showEditModal} handleClose={handleCloseEditModal} />
+      <ConfirmationModal
+        show={showConfirmationModal}
+        handleClose={handleCloseConfirmationModal}
+      />
     </div>
   );
-}
-
-export default App;
+};
