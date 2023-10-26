@@ -22,6 +22,7 @@ export const TodoList = ({
         {todoItems.map((todoItem) => {
           return (
             <TodoItem
+              key={todoItem.id}
               todoItem={todoItem}
               handleOpenEditModal={handleOpenEditModal}
               handleOpenConfirmationModal={handleOpenConfirmationModal}

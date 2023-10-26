@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import moment from "moment";
+import { v4 as uuidv4 } from "uuid";
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
 import { Banner } from "./components/Banner";
@@ -39,11 +41,11 @@ export const App = () => {
 
   const addItemToLS = (title) => {
     const item = {
-      id: "",
+      id: uuidv4(),
       title,
       status: "INCOMPLETE",
-      createdAt: "",
-      updatedAt: "",
+      createdAt: moment().format("DD/MM/YYYY HH:mm"),
+      updatedAt: moment().format("DD/MM/YYYY HH:mm"),
     };
 
     const itemsFromLS = getFromLocalStorage("todoItems", []);
