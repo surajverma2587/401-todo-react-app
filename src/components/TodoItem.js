@@ -10,7 +10,7 @@ export const TodoItem = ({
   setSelectedItem,
 }) => {
   return (
-    <ListGroup.Item as="li">
+    <ListGroup.Item as="li" className="border-0">
       <Card>
         <Card.Body>
           <Card.Title>{todoItem.title}</Card.Title>

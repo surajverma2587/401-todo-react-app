@@ -1,3 +1,3 @@
 export const Banner = () => {
-  return <div>Banner</div>;
+  return <h1 className="p-3 text-center">Todo Manager</h1>;
 };

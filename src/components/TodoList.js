@@ -19,6 +19,7 @@ export const TodoList = ({
 
   return (
     <Stack>
+      <h2 className="text-center">My Todo List Items</h2>
       <ListGroup as="ul">
         {todoItems.map((todoItem) => {
           return (

@@ -51,7 +51,7 @@ export const App = () => {
 
     const itemsFromLS = getFromLocalStorage("todoItems", []);
 
-    const newItems = [...itemsFromLS, item];
+    const newItems = [item, ...itemsFromLS];
 
     localStorage.setItem("todoItems", JSON.stringify(newItems));
 
