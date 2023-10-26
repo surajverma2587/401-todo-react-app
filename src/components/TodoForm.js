@@ -19,6 +19,7 @@ export const TodoForm = ({ addItemToLS }) => {
     } else {
       setTiteError(false);
       addItemToLS(title);
+      setTitle("");
     }
   };
 

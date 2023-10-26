@@ -37,13 +37,19 @@ export const TodoItem = ({
         </Card.Body>
         <Card.Footer>
           <Stack direction="horizontal" className="justify-content-evenly">
-            <Button variant="warning" onClick={handleOpenEditModal}>
+            <Button
+              variant="warning"
+              onClick={() => {
+                setSelectedItem(todoItem);
+                handleOpenEditModal();
+              }}
+            >
               Edit
             </Button>
             <Button
               variant="danger"
               onClick={() => {
-                setSelectedItem(todoItem.id);
+                setSelectedItem(todoItem);
                 handleOpenConfirmationModal();
               }}
             >

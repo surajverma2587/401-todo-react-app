@@ -62,14 +62,36 @@ export const App = () => {
     const itemsFromLS = getFromLocalStorage("todoItems", []);
 
     const newItems = itemsFromLS.filter((itemFromLS) => {
-      return itemFromLS.id !== selectedItem;
+      return itemFromLS.id !== selectedItem.id;
     });
 
     localStorage.setItem("todoItems", JSON.stringify(newItems));
 
     setTodoItems(newItems);
 
+    setSelectedItem();
+
     handleCloseConfirmationModal();
+  };
+
+  const editItem = (newItem) => {
+    const itemsFromLS = getFromLocalStorage("todoItems", []);
+
+    const newItems = itemsFromLS.map((itemFromLS) => {
+      if (itemFromLS.id === newItem.id) {
+        return newItem;
+      }
+
+      return itemFromLS;
+    });
+
+    localStorage.setItem("todoItems", JSON.stringify(newItems));
+
+    setTodoItems(newItems);
+
+    setSelectedItem();
+
+    handleCloseEditModal();
   };
 
   return (
@@ -85,11 +107,14 @@ export const App = () => {
             setSelectedItem={setSelectedItem}
           />
         )}
-        <EditModal
-          show={showEditModal}
-          handleClose={handleCloseEditModal}
-          itemToEdit={{ title: "Foo Bar", status: "INCOMPLETE" }}
-        />
+        {selectedItem && (
+          <EditModal
+            show={showEditModal}
+            handleClose={handleCloseEditModal}
+            itemToEdit={selectedItem}
+            editItem={editItem}
+          />
+        )}
         <ConfirmationModal
           show={showConfirmationModal}
           handleClose={handleCloseConfirmationModal}
