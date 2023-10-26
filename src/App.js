@@ -14,6 +14,7 @@ export const App = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [todoItems, setTodoItems] = useState();
+  const [selectedItem, setSelectedItem] = useState();
 
   useEffect(() => {
     if (!todoItems) {
@@ -57,6 +58,20 @@ export const App = () => {
     setTodoItems(newItems);
   };
 
+  const removeItem = () => {
+    const itemsFromLS = getFromLocalStorage("todoItems", []);
+
+    const newItems = itemsFromLS.filter((itemFromLS) => {
+      return itemFromLS.id !== selectedItem;
+    });
+
+    localStorage.setItem("todoItems", JSON.stringify(newItems));
+
+    setTodoItems(newItems);
+
+    handleCloseConfirmationModal();
+  };
+
   return (
     <Container>
       <Stack gap={3}>
@@ -67,6 +82,7 @@ export const App = () => {
             todoItems={todoItems}
             handleOpenEditModal={handleOpenEditModal}
             handleOpenConfirmationModal={handleOpenConfirmationModal}
+            setSelectedItem={setSelectedItem}
           />
         )}
         <EditModal
@@ -77,6 +93,7 @@ export const App = () => {
         <ConfirmationModal
           show={showConfirmationModal}
           handleClose={handleCloseConfirmationModal}
+          removeItem={removeItem}
         />
       </Stack>
     </Container>

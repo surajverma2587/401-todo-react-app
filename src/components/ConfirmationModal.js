@@ -1,7 +1,7 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-export const ConfirmationModal = ({ show, handleClose }) => {
+export const ConfirmationModal = ({ show, handleClose, removeItem }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -12,7 +12,9 @@ export const ConfirmationModal = ({ show, handleClose }) => {
         <Button variant="outline-secondary" onClick={handleClose}>
           No
         </Button>
-        <Button variant="danger">Yes</Button>
+        <Button variant="danger" onClick={removeItem}>
+          Yes
+        </Button>
       </Modal.Footer>
     </Modal>
   );

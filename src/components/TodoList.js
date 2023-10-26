@@ -7,6 +7,7 @@ export const TodoList = ({
   todoItems,
   handleOpenEditModal,
   handleOpenConfirmationModal,
+  setSelectedItem,
 }) => {
   if (todoItems.length === 0) {
     return (
@@ -26,6 +27,7 @@ export const TodoList = ({
               todoItem={todoItem}
               handleOpenEditModal={handleOpenEditModal}
               handleOpenConfirmationModal={handleOpenConfirmationModal}
+              setSelectedItem={setSelectedItem}
             />
           );
         })}

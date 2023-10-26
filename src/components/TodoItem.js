@@ -7,6 +7,7 @@ export const TodoItem = ({
   todoItem,
   handleOpenEditModal,
   handleOpenConfirmationModal,
+  setSelectedItem,
 }) => {
   return (
     <ListGroup.Item as="li">
@@ -39,7 +40,13 @@ export const TodoItem = ({
             <Button variant="warning" onClick={handleOpenEditModal}>
               Edit
             </Button>
-            <Button variant="danger" onClick={handleOpenConfirmationModal}>
+            <Button
+              variant="danger"
+              onClick={() => {
+                setSelectedItem(todoItem.id);
+                handleOpenConfirmationModal();
+              }}
+            >
               Delete
             </Button>
           </Stack>
